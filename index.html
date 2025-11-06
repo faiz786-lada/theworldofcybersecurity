@@ -1209,6 +1209,10 @@
                 <button id="important-notice-btn">
                     <i class="fas fa-exclamation-circle"></i> Important Notice
                 </button>
+                <!-- YAHAN NAYA DOWNLOAD PDF BUTTON JODA HAI -->
+                <button id="download-pdf-btn">
+                    <i class="fas fa-download"></i> Download PDF
+                </button>
                 <button id="dark-mode-toggle-menu">
                     <i class="fas fa-moon"></i> Dark Mode
                 </button>
@@ -1581,6 +1585,9 @@
         const videosBtnMenu = document.getElementById('videos-btn-menu');
         const contactBtnMenu = document.getElementById('contact-btn-menu');
         
+        // NAYA DOWNLOAD PDF BUTTON
+        const downloadPdfBtn = document.getElementById('download-pdf-btn');
+        
         // Image Upload Elements
         const imageUploadContainer = document.getElementById('image-upload-container');
         const articleImageFile = document.getElementById('article-image-file');
@@ -1715,6 +1722,13 @@
             // Important Notice Button
             importantNoticeBtn.addEventListener('click', function() {
                 window.open('https://faiz786-lada.github.io/Important-notice.com/', '_blank');
+                threeLineMenu.classList.remove('active');
+                menuDropdown.classList.remove('active');
+            });
+
+            // NAYA DOWNLOAD PDF BUTTON - YEH MAIN CODE HAI
+            downloadPdfBtn.addEventListener('click', function() {
+                window.open('https://faiz786-lada.github.io/Pdf/', '_blank');
                 threeLineMenu.classList.remove('active');
                 menuDropdown.classList.remove('active');
             });
