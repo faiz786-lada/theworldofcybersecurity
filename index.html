@@ -241,9 +241,9 @@
             transform: translateY(-2px);
         }
 
-        /* Three Line Menu - VISIBLE NOW */
+        /* Three Line Menu - AB HAR DEVICE PE VISIBLE */
         .three-line-menu {
-            display: none;
+            display: flex;
             flex-direction: column;
             cursor: pointer;
             padding: 8px;
@@ -1136,6 +1136,17 @@
             }
         }
 
+        /* Computer pe normal navigation hide karo, sirf three line menu show karo */
+        @media (min-width: 769px) {
+            nav {
+                display: none;
+            }
+            
+            .three-line-menu {
+                display: flex;
+            }
+        }
+
         /* Dark Mode Styles */
         body.dark-mode {
             background: linear-gradient(135deg, #1a2530 0%, #2c3e50 100%);
@@ -1194,7 +1205,7 @@
     <!-- Header with ALL NAVIGATION VISIBLE -->
     <header>
         <div class="header-container">
-            <!-- Three Line Menu - NOW VISIBLE ON MOBILE -->
+            <!-- Three Line Menu - AB HAR DEVICE PE VISIBLE -->
             <div class="three-line-menu" id="three-line-menu">
                 <span></span>
                 <span></span>
@@ -1209,7 +1220,7 @@
                 <button id="important-notice-btn">
                     <i class="fas fa-exclamation-circle"></i> Important Notice
                 </button>
-                <!-- YAHAN NAYA DOWNLOAD PDF BUTTON JODA HAI -->
+                <!-- DOWNLOAD PDF BUTTON -->
                 <button id="download-pdf-btn">
                     <i class="fas fa-download"></i> Download PDF
                 </button>
@@ -1235,7 +1246,7 @@
             
             <a href="#home" class="logo">The World of <span>Cybersecurity</span></a>
             
-            <!-- Main Navigation -->
+            <!-- Main Navigation - COMPUTER PE HIDDEN -->
             <nav>
                 <ul class="nav-main">
                     <li><a href="#home" class="nav-link active" data-section="home">
