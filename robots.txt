@@ -7,9 +7,10 @@ Disallow: /private
 Allow: /.lp
 Allow: /world-of-cybersecurity-e3869-default-rtdb.firebaseio.com/
 
-# Firebase की internal robots.txt को override करें
+# Googlebot के लिए special permissions
 User-agent: Googlebot
 Allow: /.lp
 Allow: /world-of-cybersecurity-e3869-default-rtdb.firebaseio.com/.lp
+Crawl-delay: 2
 
 Sitemap: https://theworlofcybersecurity.work.gd/sitemap.xml
