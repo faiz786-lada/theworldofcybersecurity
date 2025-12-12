@@ -3,8 +3,13 @@ Allow: /
 Disallow: /admin
 Disallow: /private
 
-# IMPORTANT: Firebase को explicitly allow करें
+# Firebase को explicitly allow करें
 Allow: /.lp
 Allow: /world-of-cybersecurity-e3869-default-rtdb.firebaseio.com/
+
+# Firebase की internal robots.txt को override करें
+User-agent: Googlebot
+Allow: /.lp
+Allow: /world-of-cybersecurity-e3869-default-rtdb.firebaseio.com/.lp
 
 Sitemap: https://theworlofcybersecurity.work.gd/sitemap.xml
