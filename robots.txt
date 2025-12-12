@@ -2,8 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /private
-
-# Firebase database access allow karein
 Allow: /.lp
 Allow: /world-of-cybersecurity-e3869-default-rtdb.firebaseio.com/
 
