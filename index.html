@@ -6,7 +6,7 @@
     <title>The World of Cybersecurity - Protecting Your Digital World</title>
     
     <!-- Google Site Verification -->
-    <meta name="google-site-verification" content="__I0qyE3UMOjkaC0QWmEGxC9zY2_mJV6CnU6TTanBWg" />
+    <meta name="google-site-verification" content="zykTbQkdf5dPPgpVTfiYRXbbOxgNHy7e6_BS-RwxM08" />
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="The World of Cybersecurity - Learn latest cybersecurity techniques and protect yourself from digital threats with comprehensive resources and guides.">
@@ -729,7 +729,7 @@
             box-shadow: 0 10px 25px rgba(52, 152, 219, 0.6);
         }
 
-        /* 3D Chat Widget */
+        /* 3D Chat Widget - UPDATED */
         .chat-widget {
             position: fixed;
             bottom: 30px;
@@ -774,63 +774,37 @@
             font-size: 28px;
         }
 
-        /* Full Screen Chat - RESTORED */
-        .fullscreen-chat {
-            display: none;
+        /* Notification */
+        .notification {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            z-index: 1003;
-            flex-direction: column;
-        }
-
-        .fullscreen-chat.active {
-            display: flex;
-        }
-
-        .chat-header {
-            background: var(--primary);
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
             color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1002;
+            display: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: slideInRight 0.5s ease;
         }
 
-        .chat-header h3 {
-            margin: 0;
-            font-size: 1.5rem;
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .close-chat {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s;
+        .notification.success {
+            background: var(--success);
         }
 
-        .close-chat:hover {
-            background-color: rgba(255,255,255,0.2);
-        }
-
-        .chat-frame {
-            flex: 1;
-            border: none;
-            width: 100%;
-            height: 100%;
+        .notification.error {
+            background: var(--accent);
         }
 
         /* Admin Modal - CENTERED */
@@ -1022,39 +996,6 @@
         .image-upload-container.dragover {
             border-color: var(--secondary);
             background-color: rgba(52, 152, 219, 0.1);
-        }
-
-        /* Notification */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            color: white;
-            z-index: 1002;
-            display: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            animation: slideInRight 0.5s ease;
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(100%);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .notification.success {
-            background: var(--success);
-        }
-
-        .notification.error {
-            background: var(--accent);
         }
 
         /* Delete Button */
@@ -1257,6 +1198,10 @@
                 <button id="download-pdf-btn">
                     <i class="fas fa-download"></i> Download PDF
                 </button>
+                <!-- CHAT QUERY BUTTON - ADDED -->
+                <button id="chat-query-btn">
+                    <i class="fas fa-comments"></i> Cyber Query
+                </button>
                 <button id="dark-mode-toggle-menu">
                     <i class="fas fa-moon"></i> Dark Mode
                 </button>
@@ -1412,30 +1357,15 @@
         <i class="fas fa-arrow-up"></i>
     </div>
     
-    <!-- Chat Widget - NOW OPENS FULL SCREEN -->
+    <!-- Chat Widget - NOW CONNECTED TO CYBER QUERY -->
     <div class="chat-widget">
-        <div class="chat-icon" id="chat-icon">
+        <a href="https://faiz786-lada.github.io/Cyber-query/" 
+           target="_blank" 
+           class="chat-icon" 
+           id="chat-icon"
+           title="Open Cyber Query Assistant">
             <i class="fas fa-comments"></i>
-        </div>
-    </div>
-    
-    <!-- Full Screen Chat - RESTORED AND CONNECTED TO CYBER QUERY -->
-    <div class="fullscreen-chat" id="fullscreen-chat">
-        <div class="chat-header">
-            <h3>Cyber Query Assistant</h3>
-            <button class="close-chat" id="close-chat">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <iframe 
-            src="https://faiz786-lada.github.io/Cyber-query/" 
-            class="chat-frame" 
-            id="chat-frame"
-            title="Cyber Query Assistant"
-            allow="identity-credentials-get"
-            allowfullscreen
-            referrerpolicy="strict-origin-when-cross-origin">
-        </iframe>
+        </a>
     </div>
     
     <!-- Notification -->
@@ -1611,11 +1541,8 @@
         const totalViewsEl = document.getElementById('total-views');
         const navLinks = document.querySelectorAll('.nav-link');
         
-        // Chat elements - RESTORED
+        // Chat elements - NOW SIMPLY AN ANCHOR TAG
         const chatIcon = document.getElementById('chat-icon');
-        const fullscreenChat = document.getElementById('fullscreen-chat');
-        const closeChat = document.getElementById('close-chat');
-        const chatFrame = document.getElementById('chat-frame');
         
         const articleForm = document.getElementById('article-form');
         const videoForm = document.getElementById('video-form');
@@ -1641,6 +1568,9 @@
         
         // NAYA DOWNLOAD PDF BUTTON
         const downloadPdfBtn = document.getElementById('download-pdf-btn');
+        
+        // NAYA CHAT QUERY BUTTON
+        const chatQueryBtn = document.getElementById('chat-query-btn');
         
         // Image Upload Elements
         const imageUploadContainer = document.getElementById('image-upload-container');
@@ -1780,9 +1710,16 @@
                 menuDropdown.classList.remove('active');
             });
 
-            // NAYA DOWNLOAD PDF BUTTON - YEH MAIN CODE HAI
+            // NAYA DOWNLOAD PDF BUTTON
             downloadPdfBtn.addEventListener('click', function() {
                 window.open('https://faiz786-lada.github.io/Pdf/', '_blank');
+                threeLineMenu.classList.remove('active');
+                menuDropdown.classList.remove('active');
+            });
+
+            // NAYA CHAT QUERY BUTTON
+            chatQueryBtn.addEventListener('click', function() {
+                window.open('https://faiz786-lada.github.io/Cyber-query/', '_blank');
                 threeLineMenu.classList.remove('active');
                 menuDropdown.classList.remove('active');
             });
@@ -1905,23 +1842,15 @@
                 }
             });
             
-            // Chat functionality - RESTORED
-            chatIcon.addEventListener('click', function() {
-                fullscreenChat.classList.add('active');
-                document.body.style.overflow = 'hidden';
+            // Chat Icon - Add hover effect
+            chatIcon.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+                this.style.animation = 'none';
             });
             
-            closeChat.addEventListener('click', function() {
-                fullscreenChat.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-            
-            // Close chat when clicking outside
-            fullscreenChat.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    fullscreenChat.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
+            chatIcon.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.animation = 'pulse 2s infinite';
             });
             
             // Image Upload Functionality
